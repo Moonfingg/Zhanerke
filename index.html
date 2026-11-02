@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Выдающиеся лингвисты Казахстана — Нұрлыбекқызы Жанерке</title>
+  <meta name="description" content="Презентация о великих казахских лингвистах: Ахмет Байтурсынов и Кудайберген Жубанов." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="0">
+
+  <!-- Ornament symbol (қошқар мүйіз — "бараний рог") -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="horn" viewBox="0 0 200 120">
+        <path d="M100 118 C100 80 96 64 78 56 C58 47 36 56 34 76 C32 92 46 100 58 94 C68 89 66 76 57 75"
+              fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M100 118 C100 80 104 64 122 56 C142 47 164 56 166 76 C168 92 154 100 142 94 C132 89 134 76 143 75"
+              fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M100 60 C100 40 92 26 100 4 C108 26 100 40 100 60 Z" fill="currentColor" opacity=".85"/>
+      </symbol>
+      <symbol id="rosette" viewBox="0 0 200 200">
+        <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="100" cy="100" r="92" opacity=".5"/>
+          <circle cx="100" cy="100" r="78" stroke-dasharray="2 8"/>
+          <g id="petal">
+            <path d="M100 100 C92 78 78 64 100 22 C122 64 108 78 100 100 Z"/>
+            <path d="M100 40 C90 30 80 34 82 44 M100 40 C110 30 120 34 118 44"/>
+          </g>
+          <use href="#petal" transform="rotate(45 100 100)"/>
+          <use href="#petal" transform="rotate(90 100 100)"/>
+          <use href="#petal" transform="rotate(135 100 100)"/>
+          <use href="#petal" transform="rotate(180 100 100)"/>
+          <use href="#petal" transform="rotate(225 100 100)"/>
+          <use href="#petal" transform="rotate(270 100 100)"/>
+          <use href="#petal" transform="rotate(315 100 100)"/>
+          <circle cx="100" cy="100" r="10"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Animated background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <svg class="bg-rosette" aria-hidden="true"><use href="#rosette"/></svg>
+
+  <!-- Transition wipe -->
+  <div class="wipe" aria-hidden="true"></div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand"><svg class="brand-horn"><use href="#horn"/></svg><span>Тіл — құрал</span></div>
+    <div class="tools">
+      <button class="tool" id="soundBtn" aria-label="Звук" title="Звук (M)">
+        <svg viewBox="0 0 24 24" class="ico-on"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none"/></svg>
+        <svg viewBox="0 0 24 24" class="ico-off"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6" fill="none"/></svg>
+      </button>
+      <button class="tool" id="fsBtn" aria-label="Во весь экран" title="Во весь экран (F)">
+        <svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck">
+
+    <!-- 1. TITLE -->
+    <section class="slide s1 active" data-index="0" aria-label="Титульный слайд">
+      <div class="s1-wrap">
+        <svg class="s1-horn"><use href="#horn"/></svg>
+        <p class="eyebrow" data-split="words">Презентация · Қазақ тілі</p>
+        <h1 class="s1-title">
+          <span class="line" data-split="chars">Выдающиеся</span>
+          <span class="line accent" data-split="chars">лингвисты</span>
+          <span class="line small" data-split="chars">Казахстана</span>
+        </h1>
+        <p class="lead" data-split="words">Ахмет Байтурсынов и Кудайберген Жубанов — люди, которые сохранили и развили казахский язык</p>
+        <div class="author">
+          <span class="author-label">Автор презентации</span>
+          <span class="author-name" data-split="chars">Нұрлыбекқызы Жанерке</span>
+          <span class="author-line"></span>
+        </div>
+        <p class="hint"><kbd>→</kbd> или <kbd>пробел</kbd> — следующий слайд</p>
+      </div>
+    </section>
+
+    <!-- 2. BAITURSYNOV -->
+    <section class="slide s2" data-index="1" aria-label="Ахмет Байтурсынов">
+      <div class="grid-2">
+        <div class="portrait-col">
+          <div class="medallion">
+            <svg class="med-ring"><use href="#rosette"/></svg>
+            <div class="med-core">
+              <span class="med-letter">А</span>
+              <span class="med-years">1873 — 1937</span>
+            </div>
+          </div>
+          <div class="nickname">«Ұлт ұстазы»<small>учитель нации</small></div>
+        </div>
+        <div class="text-col">
+          <p class="kicker">Первая личность</p>
+          <h2 class="title type" data-type="Ахмет Байтурсынов">Ахмет Байтурсынов</h2>
+          <p class="para reveal">Ахмет Байтурсынов родился в 1873 году в Тургайской области. Он был учителем, поэтом, журналистом и большим учёным. Всю жизнь он мечтал, чтобы казахские дети учились на родном языке.</p>
+          <p class="para reveal">Он сам открывал школы, учил детей и писал для них книги. За это народ с любовью назвал его «Ұлт ұстазы» — учитель нации.</p>
+          <div class="chips">
+            <span class="chip">📰 Газета «Қазақ» · 1913–1918</span>
+            <span class="chip">✒️ Поэт и переводчик</span>
+            <span class="chip">🏫 Учитель</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BAITURSYNOV CONTRIBUTION -->
+    <section class="slide s3" data-index="2" aria-label="Вклад Байтурсынова">
+      <div class="head-center">
+        <p class="kicker">Ахмет Байтурсынов</p>
+        <h2 class="title" data-split="words">Что он сделал для языка</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-ico tote">ب<span>ا</span></div>
+          <h3>Новый алфавит</h3>
+          <p>Создал удобное письмо на основе арабских букв — «Төте жазу». Теперь каждый звук казахской речи имел свою букву.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">📖</div>
+          <h3>Первые учебники</h3>
+          <p>Написал букварь «Оқу құралы» и учебник «Тіл — құрал». По этим книгам дети учились читать и понимать грамматику.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">Ә</div>
+          <h3>Казахские термины</h3>
+          <p>Придумал слова для науки о языке: «зат есім» — существительное, «етістік» — глагол, «сөйлем» — предложение.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">🪶</div>
+          <h3>Стихи и переводы</h3>
+          <p>Перевёл басни Крылова в книге «Қырық мысал» и написал сборник стихов «Маса», который звал народ к знаниям.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. ZHUBANOV -->
+    <section class="slide s4" data-index="3" aria-label="Кудайберген Жубанов">
+      <div class="grid-2 reverse">
+        <div class="text-col">
+          <p class="kicker">Вторая личность</p>
+          <h2 class="title mask"><span>Кудайберген</span><span>Жубанов</span></h2>
+          <p class="para reveal">Кудайберген Жубанов родился в 1899 году в Актюбинской области. С детства он очень любил знания и знал несколько языков.</p>
+          <p class="para reveal">Он учился в Ленинграде, в институте восточных языков. Потом стал одним из первых казахских профессоров, преподавал в Алматы и вырастил много учеников.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-line"><span></span></div>
+          <div class="tl-item"><b>1899</b><span>Родился в Актюбинской области</span></div>
+          <div class="tl-item"><b>1920-е</b><span>Учёба в Ленинграде</span></div>
+          <div class="tl-item"><b>1930-е</b><span>Профессор в Алматы</span></div>
+          <div class="tl-item"><b>1938</b><span>Жизнь учёного трагически оборвалась</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ZHUBANOV CONTRIBUTION -->
+    <section class="slide s5" data-index="4" aria-label="Вклад Жубанова">
+      <div class="head-center">
+        <p class="kicker">Кудайберген Жубанов</p>
+        <h2 class="title wave" data-split="chars">Его вклад в науку</h2>
+      </div>
+      <div class="hex-row">
+        <div class="hex"><span class="hex-n">01</span><h3>Грамматика</h3><p>Изучал, как устроен казахский язык: как рождаются слова и как строятся предложения.</p></div>
+        <div class="hex"><span class="hex-n">02</span><h3>Правописание</h3><p>Работал над алфавитом и правилами письма, чтобы все писали одинаково и грамотно.</p></div>
+        <div class="hex"><span class="hex-n">03</span><h3>Термины</h3><p>Создавал научные слова, чтобы на казахском языке можно было учить любые предметы.</p></div>
+        <div class="hex"><span class="hex-n">04</span><h3>Язык Абая</h3><p>Изучал стихи Абая и показывал, какой богатый и красивый наш родной язык.</p></div>
+      </div>
+      <blockquote class="book reveal">Его главные работы позже собрали в книгу <b>«Исследования по казахскому языку»</b>. Ею пользуются учёные и сегодня.</blockquote>
+    </section>
+
+    <!-- 6. LEGACY -->
+    <section class="slide s6" data-index="5" aria-label="Наследие">
+      <div class="head-center">
+        <p class="kicker">Наследие</p>
+        <h2 class="title glow" data-split="words">Их дело живёт</h2>
+      </div>
+      <div class="legacy">
+        <div class="leg-card">
+          <span class="leg-name">Байтурсынов</span>
+          <span class="leg-role">заложил фундамент</span>
+          <p>Дал казахам алфавит, учебники и первые термины.</p>
+        </div>
+        <div class="leg-bridge"><svg><use href="#horn"/></svg></div>
+        <div class="leg-card">
+          <span class="leg-name">Жубанов</span>
+          <span class="leg-role">построил на нём науку</span>
+          <p>Глубоко изучил язык и сделал его предметом большой науки.</p>
+        </div>
+      </div>
+      <p class="para center reveal">В 1937–1938 годах обоих учёных несправедливо обвинили и лишили жизни. Но их имена вернулись к народу. Сегодня Институт языкознания носит имя Байтурсынова, а университеты в Костанае и Актобе названы в честь этих великих людей.</p>
+      <blockquote class="quote reveal">
+        «Сөзі жоғалған жұрттың өзі де жоғалады»
+        <cite>Народ, потерявший свой язык, исчезает сам. — А. Байтурсынов</cite>
+      </blockquote>
+    </section>
+
+    <!-- 7. THANK YOU -->
+    <section class="slide s7" data-index="6" aria-label="Спасибо за внимание">
+      <div class="s7-wrap">
+        <svg class="s7-rosette"><use href="#rosette"/></svg>
+        <p class="s7-kz" data-split="chars">Рахмет!</p>
+        <h2 class="s7-title" data-split="chars">Спасибо за внимание</h2>
+        <p class="s7-sub" data-split="words">Берегите и любите родной язык</p>
+        <p class="s7-author"><span>Нұрлыбекқызы Жанерке</span></p>
+        <button class="replay" id="replayBtn">↺ Сначала</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Навигация по слайдам">
+    <button class="arrow" id="prevBtn" aria-label="Назад">
+      <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none"/></svg>
+    </button>
+    <div class="dots" id="dots"></div>
+    <span class="counter"><b id="cur">01</b> / 07</span>
+    <button class="arrow" id="nextBtn" aria-label="Вперёд">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none"/></svg>
+    </button>
+  </nav>
+  <div class="progress"><span id="bar"></span></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
